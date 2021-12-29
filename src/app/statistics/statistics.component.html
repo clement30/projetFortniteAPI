@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="bg">
+  <div align="center">
+    <h1>Bienvenue dans les statistiques des joueurs</h1>
+    <!-- barre de recherche du joueur -->
+      <form id= "searchbox" method= "get" action= "/search" autocomplete= "off">
+        <input name= "search" [(ngModel)] = "name" type= "text" size= "15" placeholder= "Entrez le nom du joueur… "/>
+        <input id= "button-submit" type= "submit" (click)="sendData()" (click)="sendApi()" value="" />
+      </form>
+  </div>
+  <div *ngIf="responseUserId.result == true">
+    <!-- Affichage des stats avec l'api -->
+    <h3>Nom du joueur: {{responseStats.name}}</h3>
+    <p>level du joueur: {{responseStats.account.level}}</p>
+
+    <ul>
+          <li>Matchs solo</li>
+            <ul>
+              <li>Eliminations: {{responseStats.global_stats.solo.kills}}</li>
+              <li>Top 1: {{ responseStats.global_stats.solo.placetop1 }}</li>
+              <li>top 3: {{ responseStats.global_stats.solo.placetop3 }}</li>
+              <li>Top 5: {{ responseStats.global_stats.solo.placetop5 }}</li>
+              <li>Match played: {{ responseStats.global_stats.solo.matchesplayed }}</li>
+              <li>Days played: {{ daysPlayedSolo }}</li>
+            </ul>
+          <li>Matchs duo</li>
+            <ul>
+              <li>Eliminations: {{responseStats.global_stats.duo.kills}}</li>
+              <li>Top1: {{ responseStats.global_stats.duo.placetop1 }}</li>
+              <li>Top3: {{ responseStats.global_stats.duo.placetop3 }}</li>
+              <li>Top5: {{ responseStats.global_stats.duo.placetop5 }}</li>
+              <li>Match played: {{ responseStats.global_stats.duo.matchesplayed }}</li>
+              <li>Days played: {{ daysPlayedDuo }}</li>
+            </ul>
+          <li>Matchs squad</li>
+          <ul>
+            <li>Eliminations: {{responseStats.global_stats.squad.kills}}</li>
+            <li>Top1: {{ responseStats.global_stats.squad.placetop1 }}</li>
+            <li>Top3: {{ responseStats.global_stats.squad.placetop3 }}</li>
+            <li>Top5: {{ responseStats.global_stats.squad.placetop5 }}</li>
+            <li>Match played: {{ responseStats.global_stats.squad.matchesplayed }}</li>
+            <li>Days played: {{ daysPlayedSquad }}</li>
+          </ul>
+          All days played: {{ allDaysPlayed }} jours.
+
+    </ul>
+  </div>
+  <div *ngIf="responseUserId.result == false">
+    <h2>Player not found...</h2>
+  </div>
+</div>

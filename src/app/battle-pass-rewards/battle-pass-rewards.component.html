@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="bg">
+  <div align="center">
+    <input type=submit class="drapFr" (click)="sendLangageFR()" value=""/>
+    <input type=submit class="drapEn" (click)="sendLangageEN()" value=""/>
+    <input type=submit class="drapAr" (click)="sendLangageAR()" value=""/>
+    <input type=submit class="drapEs" (click)="sendLangageES()" value=""/>
+    <input type=submit class="drapIt" (click)="sendLangageIT()" value=""/>
+    <input type=submit class="drapCh" (click)="sendLangageCH()" value=""/>
+  </div>
+  <div> <!-- align="center" -->
+    <!-- <h1>Voici tous les idems à l'achat aujourd'hui</h1> -->
+    <h1>{{ responseItemBattlePass.displayInfo.battlepassName}} / {{ responseItemBattlePass.displayInfo.chapterSeason }} </h1>
+
+      <!-- <ul *ngFor = "let j = index; let title of responseItemBattlePass.rewards.page>">
+        <li>{{ responseItemBattlePass.rewards.page[j] }}</li>
+      </ul> -->
+      <ul *ngFor = "let i = index; let title of responseItemBattlePass.rewards">
+        <li>{{ responseItemBattlePass.rewards[i].item.name }} {{ responseItemBattlePass.rewards[i].item.description }}</li>
+        <img src="{{ responseItemBattlePass.rewards[i].item.images.full_background }}" style="width:300px;height:300px;">
+         
+      </ul>
+  </div>
+  <a href="BattlePassRewards" class="btn">
+    <img src="https://presencevertetouraine.fr/wp-content/themes/themePVT/assets/img/fleche_haut_gris.png" class="icone">
+  </a>
+</div>

@@ -1,0 +1,39 @@
+<app-header></app-header>
+<html>
+  <head>
+
+     
+
+    </head>
+ 
+<body>
+
+  
+
+<div class="bg">
+
+<h1>Item Shop  {{date | date}}</h1>
+<h2>Reset: <countdown #cd [config]="{leftTime: countDown}" ></countdown> </h2>
+
+  <!-- <ul *ngFor = "let shop of responseItemShop.shop"> -->
+   <ul *ngFor = "let i = index; let title of responseItemShop.shop">
+    <li>{{ responseItemShop.shop[i].displayName }} {{ responseItemShop.shop[i].displayDescription }} <!--{{ responseItem.Shop.rewards[i].item.name }}{{ responseItemShop.data[i].item.obtained_type | uppercase }}--></li>
+     <img src="{{ responseItemShop.shop[i].displayAssets[0].full_background }}" style="width:300px;height:300px;">
+      <!--<ul class="lists">
+        <li *ngIf="responseItemShop.data[i].item.images.featured; else elseBlock"><img src="{{ responseItemShop.data[i].item.images.featured }}" style="width:300px;height:300px;"></li>
+        <ng-template #elseBlock>
+          <li><img src="{{ responseItemShop.data[i].item.images.background }}" style="width:300px;height:300px;"></li>
+          </ng-template>
+        <li *ngIf="responseItemShop.data[i].item.description; else elseBlock2">{{ responseItemShop.data[i].item.description }}</li>
+        <ng-template #elseBlock2>
+            <li>{{ responseItemShop.data[i].item.rarity | titlecase}}  {{ responseItemShop.data[i].item.type | titlecase}}</li>
+        </ng-template>
+      </ul>-->
+  </ul>
+</div>
+<a href="daily-shop" class="btn">
+  <img src="https://presencevertetouraine.fr/wp-content/themes/themePVT/assets/img/fleche_haut_gris.png" class="icone">
+</a>
+<script src="daily-shop.js"></script>
+  </body>
+  </html>
