@@ -6,7 +6,7 @@
 .bg{
     /* Fixe l'image en haut à gauche de la page */
     position: absolute; 
-    top: 1; 
+    top: 60px; 
     left: 0; 
     /* Préserve le ratio de l'image */
     min-width: 100%;
@@ -17,6 +17,79 @@
     color: white;
 }
 
+/*Grille*/
+.grille{
+    max-width: 1300px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+.grid-item{
+    width: 300px;
+    height: 300px;
+    background: #333;
+}
+/*Fin Grille*/
+
+/*Div infomation item sur la grille*/
+.info{
+    background-color: gray;
+    text-align: center;
+    width: 920px;
+    height: 500px;
+
+    position: fixed;
+    left: 17.8%;
+}
+
+.imageInfo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.nomInfo{
+    position: absolute;
+    left: 220px;
+    top: 20px;
+}
+
+.typeInfo{
+    position: absolute;
+    left: 220px;
+    top: 70px;
+}
+
+.descriptionInfo{
+    position: absolute;
+    left: 220px;
+    top: 100px;
+}
+
+.autreImages{
+    position: absolute;
+    left: 10px;
+    top: 210px;
+}
+
+.autreImageInfo{
+    position: absolute;
+    left: 10px;
+    top: 270px;
+}
+
+.autreImageInfo2{
+    position: absolute;
+    left: 230px;
+    top: 270px;
+}
+
+/*Fin Div infomation item sur la grille*/
 
 .btn {
     position: fixed;

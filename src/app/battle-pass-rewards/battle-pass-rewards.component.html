@@ -8,19 +8,31 @@
     <input type=submit class="drapIt" (click)="sendLangageIT()" value=""/>
     <input type=submit class="drapCh" (click)="sendLangageCH()" value=""/>
   </div>
-  <div> <!-- align="center" -->
-    <!-- <h1>Voici tous les idems à l'achat aujourd'hui</h1> -->
-    <h1>{{ responseItemBattlePass.displayInfo.battlepassName}} / {{ responseItemBattlePass.displayInfo.chapterSeason }} </h1>
-
-      <!-- <ul *ngFor = "let j = index; let title of responseItemBattlePass.rewards.page>">
-        <li>{{ responseItemBattlePass.rewards.page[j] }}</li>
-      </ul> -->
+  
+    <h1 align="center">{{ responseItemBattlePass.displayInfo.battlepassName}} / {{ responseItemBattlePass.displayInfo.chapterSeason }} </h1>
+  <!--<div>
       <ul *ngFor = "let i = index; let title of responseItemBattlePass.rewards">
         <li>{{ responseItemBattlePass.rewards[i].item.name }} {{ responseItemBattlePass.rewards[i].item.description }}</li>
         <img src="{{ responseItemBattlePass.rewards[i].item.images.full_background }}" style="width:300px;height:300px;">
          
       </ul>
+  </div>-->
+
+  <div class="grille">    
+      <div class="grid-item" *ngFor = "let i = index; let title of responseItemBattlePass.rewards"><input type="image" src="{{ responseItemBattlePass.rewards[i].item.images.full_background }}" style="width:300px;height:300px;" (click)="sendNumber(i)"></div>
+
+      <div class="info" *ngIf="i != -1">
+        <input type="image" src="https://img.icons8.com/color/48/000000/delete-sign--v3.png" (click)="retourGrille()"/> <!--ferme le div information-->
+        <img class="imageInfo" src="{{ responseItemBattlePass.rewards[i].item.images.background }}" style="width:200px;height:200px;">
+        <h1 class="nomInfo">{{responseItemBattlePass.rewards[i].item.name }}</h1>
+        <h3 class="typeInfo">{{responseItemBattlePass.rewards[i].item.rarity.name }} -- {{ responseItemBattlePass.rewards[i].item.type.name }}</h3>
+        <h3 class="descriptionInfo">{{ responseItemBattlePass.rewards[i].item.description }}</h3>
+        <h2 class="autreImages">Images</h2>
+        <img class="autreImageInfo" src="{{ responseItemBattlePass.rewards[i].item.images.icon }}" style="width:200px;height:200px;">
+        <img class="autreImageInfo2" src="{{ responseItemBattlePass.rewards[i].item.styles[1].image }}" style="width:200px;height:200px;">
+      </div>
   </div>
+
   <a href="BattlePassRewards" class="btn">
     <img src="https://presencevertetouraine.fr/wp-content/themes/themePVT/assets/img/fleche_haut_gris.png" class="icone">
   </a>

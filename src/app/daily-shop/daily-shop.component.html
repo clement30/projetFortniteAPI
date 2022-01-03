@@ -13,23 +13,35 @@
 <div class="bg">
 
 <h1>Item Shop  {{date | date}}</h1>
-<h2>Reset: <countdown #cd [config]="{leftTime: countDown}" ></countdown> </h2>
+<h2>Reset: <countdown #cd [config]="{leftTime: countDown}"></countdown></h2>
+<!--<h2 class="clock"></h2>-->
 
-  <!-- <ul *ngFor = "let shop of responseItemShop.shop"> -->
-   <ul *ngFor = "let i = index; let title of responseItemShop.shop">
-    <li>{{ responseItemShop.shop[i].displayName }} {{ responseItemShop.shop[i].displayDescription }} <!--{{ responseItem.Shop.rewards[i].item.name }}{{ responseItemShop.data[i].item.obtained_type | uppercase }}--></li>
-     <img src="{{ responseItemShop.shop[i].displayAssets[0].full_background }}" style="width:300px;height:300px;">
-      <!--<ul class="lists">
-        <li *ngIf="responseItemShop.data[i].item.images.featured; else elseBlock"><img src="{{ responseItemShop.data[i].item.images.featured }}" style="width:300px;height:300px;"></li>
-        <ng-template #elseBlock>
-          <li><img src="{{ responseItemShop.data[i].item.images.background }}" style="width:300px;height:300px;"></li>
-          </ng-template>
-        <li *ngIf="responseItemShop.data[i].item.description; else elseBlock2">{{ responseItemShop.data[i].item.description }}</li>
-        <ng-template #elseBlock2>
-            <li>{{ responseItemShop.data[i].item.rarity | titlecase}}  {{ responseItemShop.data[i].item.type | titlecase}}</li>
-        </ng-template>
-      </ul>-->
-  </ul>
+  <div class="grille">    
+    <div class="grid-item" *ngFor = "let i = index; let title of responseItemShop.shop"><input type="image" src="{{ responseItemShop.shop[i].displayAssets[0].full_background }}" style="width:300px;height:300px;" (click)="sendNumber(i)"></div>
+
+    <div class="info" *ngIf="i != -1">
+      <input class="croix" type="image" src="https://img.icons8.com/color/48/000000/delete-sign--v3.png" (click)="retourGrille()"/> <!--ferme le div information-->
+      <img class="imageInfo" src="{{ responseItemShop.shop[i].granted[0].images.icon }}" style="width:200px;height:200px;">
+      <h1 class="nomInfo">{{ responseItemShop.shop[i].displayName }}</h1>
+      <h3 class="typeInfo">{{ responseItemShop.shop[i].rarity.name }} -- {{ responseItemShop.shop[i].displayType }}</h3>
+      <h3 class="prix"><img style="width:25px" src="https://image.fnbr.co/price/icon_vbucks_50x.png"> {{ responseItemShop.shop[i].price.finalPrice }} </h3>
+      <p class="descriptionInfo">"{{ responseItemShop.shop[i].displayDescription }}"</p>
+      <h2 class="autreImages">Images</h2>
+      <img class="autreImageInfo" src="{{ responseItemShop.shop[i].granted[0].images.featured }}" style="width:200px;height:200px;">
+      <img class="autreImageInfo2" src="{{ responseItemShop.shop[i].displayAssets[0].background }}" style="width:200px;height:200px;">
+      <img class="autreImageInfo3" src="{{ responseItemShop.shop[i].displayAssets[1].background }}" style="width:200px;height:200px;"> 
+    </div>
+
+  </div>
+
+
+
+
+
+   <!--<ul *ngFor = "let i = index; let title of responseItemShop.shop">
+    <li>{{ responseItemShop.shop[i].displayName }} {{ responseItemShop.shop[i].displayDescription }}</li>
+     <img src="{{ responseItemShop.shop[i].displayAssets[0].full_background }}" style="width:300px;height:300px;">      
+  </ul>-->
 </div>
 <a href="daily-shop" class="btn">
   <img src="https://presencevertetouraine.fr/wp-content/themes/themePVT/assets/img/fleche_haut_gris.png" class="icone">

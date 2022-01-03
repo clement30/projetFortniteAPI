@@ -1,10 +1,18 @@
+@font-face {
+    font-family: "Burbank Small Black";
+    src: url("../../fonts/BurbankSmall-Black.otf");
+}
+
 .bg{
     /* Fixe l'image en haut à gauche de la page */
     position: absolute; 
-    top: 1; 
+    top: 60px; 
     left: 0; 
     /* Préserve le ratio de l'image */
     min-width: 100%;
     min-height: 100%;
     background-image: url(../img/background.png);
+    /*Police*/
+    font-family: "Burbank Small Black";
+    color: white;
 }

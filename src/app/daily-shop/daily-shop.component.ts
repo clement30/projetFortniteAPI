@@ -11,6 +11,7 @@ export class DailyShopComponent implements OnInit {
 
   response: any;
   responseItemShop: any;
+  i: number = -1;
   
   //afficher un minuteur pour indiquer le reset du shop (Tous les jours à 1h du matin)
   date = new Date();
@@ -37,5 +38,14 @@ export class DailyShopComponent implements OnInit {
       this.responseItemShop = response;
       console.log(this.responseItemShop);
     })
+  }
+
+  retourGrille(): void{
+    this.i = -1;
+  }
+  
+  sendNumber(i: number): void{
+    this.i = i;
+    console.log(this.i);
   }
 }

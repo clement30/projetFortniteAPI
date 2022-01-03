@@ -11,7 +11,7 @@ export class BattlePassRewardsComponent implements OnInit {
   response: any;
   responseItemBattlePass: any;
   langage: string ="fr";
-  texte :string ="Voici tous les idems à l'achat aujourd'hui";
+  i :number = -1;
 
   constructor(private http: HttpClient) { }
 
@@ -40,6 +40,15 @@ sendApi(): void{
     this.responseItemBattlePass = response;
     console.log(this.responseItemBattlePass);
   })
+}
+
+retourGrille(): void{
+  this.i = -1;
+}
+
+sendNumber(i: number): void{
+  this.i = i;
+  console.log(this.i);
 }
 
 sendLangageFR(): void {
